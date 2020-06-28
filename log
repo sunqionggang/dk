@@ -1,0 +1,15 @@
+2020-06-23 16:33:43.069  INFO 20608 --- [main] dockerproj.dkject.DkjectApplication      : Starting DkjectApplication on localhost with PID 20608 (D:\我的工作\数据质量工程\dkject\target\classes started by 91311 in D:\我的工作\数据质量工程\dkject)
+2020-06-23 16:33:43.076  INFO 20608 --- [main] dockerproj.dkject.DkjectApplication      : No active profile set, falling back to default profiles: default
+2020-06-23 16:33:44.875  INFO 20608 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8088 (http)
+2020-06-23 16:33:44.889  INFO 20608 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-06-23 16:33:44.889  INFO 20608 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-06-23 16:33:45.042  INFO 20608 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-06-23 16:33:45.042  INFO 20608 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1855 ms
+2020-06-23 16:33:45.300  INFO 20608 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-23 16:33:45.526  INFO 20608 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8088 (http) with context path ''
+2020-06-23 16:33:45.533  INFO 20608 --- [main] dockerproj.dkject.DkjectApplication      : Started DkjectApplication in 3.43 seconds (JVM running for 6.133)
+2020-06-23 16:33:54.315  INFO 20608 --- [http-nio-8088-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-23 16:33:54.315  INFO 20608 --- [http-nio-8088-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-06-23 16:33:54.324  INFO 20608 --- [http-nio-8088-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-06-23 16:33:54.376 ERROR 20608 --- [http-nio-8088-exec-2] dockerproj.dkject.sqg.HelloController    : xx
+2020-06-23 16:34:23.006 ERROR 20608 --- [http-nio-8088-exec-3] dockerproj.dkject.sqg.HelloController    : xx

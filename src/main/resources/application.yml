@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: sqg
+server:
+  port: 8088
+logging:
+  #level:
+    #root: ERROR
+    #"dockerproj.dkject.sqg": INFO
+  ##输出到文件夹 d:\\log
+  path: d:\\log
+  ##输出到文件 d:\\log2\\my.log
+  file: d:\\log2\\my.log
