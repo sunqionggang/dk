@@ -1,6 +1,9 @@
 spring:
   profiles:
     active: sqg
+  swagger:
+    base-package: dockerproj.dkject
+    enabled: true
 server:
   port: 8088
 logging:

@@ -92,6 +92,13 @@
             <version>${shiro.version}</version>
         </dependency>
         <!-- End  -->
+        <!--swagger start-->
+        <dependency>
+            <groupId>com.battcn</groupId>
+            <artifactId>swagger-spring-boot-starter</artifactId>
+            <version>1.4.5-RELEASE</version>
+        </dependency>
+        <!--swagger end-->
     </dependencies>
 
     <build>
