@@ -21,13 +21,13 @@ class DkjectApplicationTests {
         List<UserEntity> li= userMapper.getAll();
         for (UserEntity u:li
              ) {
-            System.out.println(u.getName());
+            System.out.println(u.getUsername());
 
         }
         List<UserEntity> li2=userMapper.selectList(new QueryWrapper<>());
         for (UserEntity u:li2
         ) {
-            System.err.println(u.getName());
+            System.err.println(u.getUsername());
 
         }
     }
