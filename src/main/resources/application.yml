@@ -4,6 +4,26 @@ spring:
   swagger:
     base-package: dockerproj.dkject
     enabled: true
+    title: dk在线文档
+    description: 做个小测试吧
+    version: 1.0.1
+    contact:
+      name: 孙琼纲
+      url: https://www.cnblogs.com/sansyou/
+  redis:
+    host: 127.0.0.1
+    database: 0
+    port: 6379
+    password: 123456
+    timeout: 11110
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1
+        max-active: 8
+  thymeleaf:
+    cache: false
 server:
   port: 8088
 logging:

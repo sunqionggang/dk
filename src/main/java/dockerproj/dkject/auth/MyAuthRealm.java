@@ -8,19 +8,31 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.RedisTemplate;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 @Configuration
 public class MyAuthRealm extends AuthorizingRealm {
+
+    @Autowired
+    private RedisTemplate<String, Serializable> redisCacheTemplate;
+
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        Session session = SecurityUtils.getSubject().getSession();
+        //Session session = SecurityUtils.getSubject().getSession();
+        //Session session=null;
+        UserEntity userEntity=null;
+        if(redisCacheTemplate.opsForValue().get("USER_SESSION")!=null){
+            userEntity=(UserEntity)redisCacheTemplate.opsForValue().get("USER_SESSION");
+        }
         //获取登陆成功后设置的session值
-        UserEntity userEntity=(UserEntity)session.getAttribute("USER_SESSION");
+        //UserEntity userEntity=(UserEntity)session.getAttribute("USER_SESSION");
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         Set<String> roles=new HashSet<>();
         roles.add(userEntity.getRoleName());
@@ -34,6 +46,9 @@ public class MyAuthRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+        /*if(redisCacheTemplate.opsForValue().get("token")!=null){
+            token=(AuthenticationToken)redisCacheTemplate.opsForValue().get("token");
+        }*/
         String principal=(String)token.getPrincipal();
 
         //构造一个假的用户
@@ -57,6 +72,7 @@ public class MyAuthRealm extends AuthorizingRealm {
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(principal, user.getPassword(), getName());
         Session session = SecurityUtils.getSubject().getSession();
         session.setAttribute("USER_SESSION", user);
+        redisCacheTemplate.opsForValue().set("USER_SESSION",user);
         return authenticationInfo;
     }
 }

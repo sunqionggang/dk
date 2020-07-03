@@ -1,15 +1,19 @@
 package dockerproj.dkject.mybatis.controller;
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.spring.config.ShiroConfiguration;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.io.Serializable;
 
 @RestController
 public class LoginController {
@@ -18,6 +22,11 @@ public class LoginController {
     @GetMapping(value = "/hello")
     public String hello() {
         log.info("不登录也可以访问...");
+        String str=new String();
+        String aa = new String();
+        String jso="{\"name\":\"sun\",\"age\":10}";
+        String ss = "ss";
+
         return "hello...";
     }
 
@@ -33,6 +42,12 @@ public class LoginController {
         return "denied...";
     }
 
+    @Autowired
+    private RedisTemplate<String, Serializable> redisCacheTemplate;
+
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+
     @GetMapping(value = "/login")
     public String login(String username, String password, RedirectAttributes model) {
         // 想要得到 SecurityUtils.getSubject() 的对象．．访问地址必须跟 shiro 的拦截地址内．不然后会报空指针
@@ -40,9 +55,10 @@ public class LoginController {
         // 用户输入的账号和密码,,存到UsernamePasswordToken对象中..然后由shiro内部认证对比,
         // 认证执行者交由 com.battcn.config.AuthRealm 中 doGetAuthenticationInfo 处理
         // 当以上认证成功后会向下执行,认证失败会抛出异常
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+        UsernamePasswordToken token=new UsernamePasswordToken(username, password);
         try {
             sub.login(token);
+           // redisCacheTemplate.opsForValue().set("token",token);
         } catch (UnknownAccountException e) {
             log.error("对用户[{}]进行登录验证,验证未通过,用户不存在", username);
             token.clear();

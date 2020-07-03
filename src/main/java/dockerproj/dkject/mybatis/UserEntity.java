@@ -8,13 +8,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+
 @Data
 @TableName("user")
 @AllArgsConstructor
 @Accessors(chain = true)
 @NoArgsConstructor
 @ApiModel
-public class UserEntity {
+public class UserEntity implements Serializable {
     /** 自增ID */
     @ApiModelProperty("自增id")
     private Long id;
