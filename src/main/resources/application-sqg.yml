@@ -9,3 +9,18 @@ spring:
     password: sun123456
     url: jdbc:mysql://localhost:3306/graphql?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
     username: root
+# 描述信息
+info:
+  blog-url: http://blog.battcn.com
+  author: Levin
+  version: @project.version@
+##actutor
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ['*']
+  endpoint:
+    health:
+      show-details: always
+

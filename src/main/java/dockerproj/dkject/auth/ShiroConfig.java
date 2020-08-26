@@ -66,7 +66,7 @@ public class ShiroConfig {
         //登陆成功后跳转的地址
         shiroFilterFactoryBean.setSuccessUrl("/index");
         shiroFilterFactoryBean.setUnauthorizedUrl("/denied");
-        loadShiroFilterChain(shiroFilterFactoryBean);
+        //loadShiroFilterChain(shiroFilterFactoryBean);
         return shiroFilterFactoryBean;
     }
 

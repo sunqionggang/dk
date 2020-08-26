@@ -23,6 +23,11 @@ public class MyAuthRealm extends AuthorizingRealm {
     @Autowired
     private RedisTemplate<String, Serializable> redisCacheTemplate;
 
+    /**
+     * 验证权限时调用
+     * @param principals
+     * @return
+     */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         //Session session = SecurityUtils.getSubject().getSession();
@@ -44,6 +49,12 @@ public class MyAuthRealm extends AuthorizingRealm {
         return info;
     }
 
+    /**
+     * 登陆时调用
+     * @param token
+     * @return
+     * @throws AuthenticationException
+     */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         /*if(redisCacheTemplate.opsForValue().get("token")!=null){
