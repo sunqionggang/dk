@@ -65,7 +65,7 @@ public class MyAuthRealm extends AuthorizingRealm {
         //构造一个假的用户
        /* UserEntity user=new UserEntity();
         user.setPassword("123456");
-        user.setUsername("sqg");
+        user.setUsername("module");
         user.setRoleName("admin");
         user.setLocked(true);
         //比对查找数据库中用户是否存在

@@ -1,7 +1,9 @@
-package dockerproj.dkject.sqg;
+package dockerproj.dkject.module.controller;
 
 import dockerproj.dkject.exception.CommonException;
 import dockerproj.dkject.exception.valid.DemoReq;
+import dockerproj.dkject.module.entity.Person;
+import dockerproj.dkject.module.service.MyAsyncService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ public class HelloController {
     @Autowired
     private Person person;
 
+    @Autowired
+    MyAsyncService myAsyncService;
     @PostMapping("/getCurrentProfile")
     public  String say(){
         logger.info("printProfile");
@@ -55,5 +59,25 @@ public class HelloController {
         return req.getCode() + "," + req.getName();
     }
 
+    @GetMapping("/demo/async")
+    public String doAsync(){
+        for(int i=0;i<10;i++){
+            myAsyncService.asyncAdd();
+        }
+        return "完成异步调用";
+    }
 
+    @GetMapping("/demo/myAsync")
+    public String myAsync(){
+        for(int i=0;i<10;i++){
+            myAsyncService.asyncMyThreadPoolAdd();
+        }
+        return "完成异步调用";
+    }
+
+    @GetMapping("/demo/add")
+    public String doAdd(){
+        myAsyncService.add();
+        return "完成同步调用";
+    }
 }

@@ -1,4 +1,4 @@
-package dockerproj.dkject.sqg;
+package dockerproj.dkject.module.entity;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

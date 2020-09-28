@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 /**
  * @description: java8 String操作
- * @author: sqg
+ * @author: module
  * @create: 2020-08-13 20:05
  */
 public class StreamLambada {
