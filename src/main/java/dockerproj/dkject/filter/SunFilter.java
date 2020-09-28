@@ -8,7 +8,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-//@WebFilter(filterName = "sqg",urlPatterns = {"/pathVar/*"})
+//@WebFilter(filterName = "module",urlPatterns = {"/pathVar/*"})
 public class SunFilter implements Filter {
     Logger log= LoggerFactory.getLogger(SunFilter.class);
     @Override

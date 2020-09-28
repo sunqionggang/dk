@@ -17,7 +17,7 @@ public class ThymeController {
         ModelAndView modelAndView=new ModelAndView();
         // 设置跳转的视图 默认映射到 src/main/resources/templates/{viewName}.html
         modelAndView.setViewName("/index");
-        modelAndView.addObject("name","sqg");
+        modelAndView.addObject("name","module");
         modelAndView.addObject("age",18);
         UserEntity u=new UserEntity();
         u.setRoleName("admin");
@@ -27,7 +27,7 @@ public class ThymeController {
 
     @GetMapping("thymIndex2")
     public String tt2(HttpServletRequest request){
-        request.setAttribute("name","sqg");
+        request.setAttribute("name","module");
         request.setAttribute("age",19);
         UserEntity u=new UserEntity();
         u.setRoleName("admin");

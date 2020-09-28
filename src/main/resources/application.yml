@@ -29,7 +29,7 @@ server:
 logging:
   #level:
     #root: ERROR
-    #"dockerproj.dkject.sqg": INFO
+    #"dockerproj.dkject.module": INFO
   ##输出到文件夹 d:\\log
   path: d:\\log
   ##输出到文件 d:\\log2\\my.log

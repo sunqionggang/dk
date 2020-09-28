@@ -1,7 +1,7 @@
 my:
-  name: sqg
+  name: module
   age: 27
-  active: sqg
+  active: module
   sex: m
 spring:
   datasource:
