@@ -26,6 +26,14 @@ spring:
     cache: false
 server:
   port: 8088
+
+rocketmq:
+  name-server: 127.0.0.1:9876
+  #  name-server: 192.168.99.100:9876
+  producer:
+    group: drd-producer
+  consumer:
+    group: drd-consumer
 logging:
   #level:
     #root: ERROR
